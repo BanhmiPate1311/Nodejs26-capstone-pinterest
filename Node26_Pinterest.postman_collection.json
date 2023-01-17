@@ -1,0 +1,487 @@
+{
+	"info": {
+		"_postman_id": "ff69dd08-d619-4cd7-a66f-94af2d420b9e",
+		"name": "Node26_Pinterest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23736088"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "cuong@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "fullName",
+									"value": "Huynh Cuong",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/BanhmiPate/Desktop/thoi.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\":\"long@gmail.com\",\r\n  \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/profiles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"profiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/auth/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "Get Images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images?name=k",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "k"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "...",
+									"type": "text"
+								},
+								{
+									"key": "imageName",
+									"value": "vo tay",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/BanhmiPate/Desktop/vo tay.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/images",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/save/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"save",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check images saved by imageId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/save/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"save",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Del ImageById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/del/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"del",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image Saved By UserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/saveByUserId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"saveByUserId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Images Created By UserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/createdByUserId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"createdByUserId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image By ImageId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/images/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"images",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Create Comment With CommentId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsb25nQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzg3NTcxOSwiZXhwIjoxNjczOTE4OTE5fQ.cm9Uu3tuMaekYhJJTQBwGKTFD_p6QP6Kls2gV4eKq_I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"sức sắc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/comment/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comment",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comment By ImageId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/comment/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comment",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
