@@ -1,5 +1,6 @@
 const { response } = require("../helpers/response");
 const authService = require("../services/auth.service");
+const fs = require("fs");
 
 // POST: /login - body: {email, password}
 const login = () => {
@@ -31,6 +32,15 @@ const updateProfile = () => {
     try {
       const data = req.body;
       const { user } = res.locals;
+      const file = req.file;
+      if (file) {
+        const location = "." + user.avatar.split("http://localhost:4000")[1];
+
+        fs.unlinkSync(location);
+        file.path = file.path.replace(/\\/g, "/"); // Đối với window
+
+        data.avatar = `http://localhost:4000/${file.path}`;
+      }
       const updatedProfile = await authService.updateProfile(user.userId, data);
       res.status(200).json(response(updatedProfile));
     } catch (error) {
